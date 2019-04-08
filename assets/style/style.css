@@ -1,0 +1,22 @@
+body {
+  background: url("../images/background.jpg");
+}
+.container {
+  background: black;
+  height: 600px;
+}
+#question {
+  display: none;
+}
+#startscreen {
+}
+.center-text {
+  position: relative;
+  top: 25%;
+  color: white;
+}
+.btn {
+  position: absolute;
+  top: 40%;
+  left: 48%;
+}
