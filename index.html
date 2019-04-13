@@ -15,14 +15,39 @@
     <title>Trivia Game</title>
   </head>
   <body>
+    <!-- This is the start screen -->
     <div id="startscreen" class="container mt-5 rounded text-center">
       <h2 class="center-text">Welcome to the Trivia Game</h2>
-      <button class="btn btn-danger"><h3>Start</h3></button>
-    </div>
-    <div id="question" class="container mt-5 rounded">
-      <h2 class="question"></h2>
+      <button id="start" class="btn btn-danger"><h3>Start</h3></button>
     </div>
 
-    <script src="./assets/javascript/app.js"></script>
+    <!-- This is the question screen -->
+    <div id="questionscreen" class="container mt-5 rounded text-center">
+      <h3 id="timer" class="timer position-absolute"></h3>
+      <div class="row justify-content-center mt-5">
+        <div id="question" class="col-md-6 mt-5 mb-5"></div>
+      </div>
+      <div class="row justify-content-center mb-5">
+        <div id="answer" class="col-md-6 mt-5"></div>
+      </div>
+    </div>
+
+    <!-- This is the gameover screen -->
+    <div id="gameover" class="container">
+      <div class="row mt-5 justify-content-center">
+        <div class="col-md-6 text-center">
+          <h2 class="gameover">Game Over</h2>
+        </div>
+      </div>
+      <div class="row mt-5 justify-content-center">
+        <div id="game-score" class="col-md-6 text-center p-3">
+          <h3 id="correct-answers" class="answer"></h3>
+          <h3 id="incorrect-answers" class="answer"></h3>
+        </div>
+        <button id="retry" class="btn btn-danger"><h3>Retry</h3></button>
+      </div>
+    </div>
+
+    <script src="./assets/javascript/main.js"></script>
   </body>
 </html>
