@@ -47,7 +47,7 @@ var questionArray = [
 // this sets the number of the question
 var incorrectAnswer = 0;
 var correctAnswer = 0;
-var timerCount = 30;
+var timerCount = 2;
 var count = 0;
 var countArray = [];
 var choicesArray = [];
@@ -158,6 +158,7 @@ function showAnswerCorrect() {
   $("#questionscreen").hide();
   $("#show-answer").show();
   $("#show-incorrect").hide();
+  $("#show-correct").show();
   $("#times-up").hide();
   setTimeout(resetAnswer, 2000);
 }
@@ -166,7 +167,7 @@ function showAnswerIncorrect() {
   $("#questionscreen").hide();
   $("#show-answer").show();
   $("#show-correct").hide();
-  $("show-incorrect").show();
+  $("#show-incorrect").show();
   $("#times-up").hide();
   $("#incorrected").text(rightAnswer);
   setTimeout(resetAnswer, 2000);
@@ -183,5 +184,7 @@ function showTimesUp() {
   $("#show-correct").hide();
   $("#show-incorrect").hide();
   $("#times-up").show();
+  timercount = 30;
+  counter = setInterval(timer, 1000);
   setTimeout(resetAnswer, 2000);
 }
