@@ -47,7 +47,7 @@ var questionArray = [
 // this sets the number of the question
 var incorrectAnswer = 0;
 var correctAnswer = 0;
-var timerCount = 2;
+var timerCount = 30;
 var count = 0;
 var countArray = [];
 var choicesArray = [];
@@ -133,6 +133,7 @@ function displayTrivia() {
       $("#incorrect-answers").html(
         "You had " + incorrectAnswer + " incorrect answers"
       );
+
       $("#retry").on("click", function() {
         $("#gameover").hide();
         timerCount = 30;
@@ -141,6 +142,7 @@ function displayTrivia() {
         $("#question").empty();
         $("#answer").empty();
         setTimeout(displayTrivia, timer, 3000);
+        return;
       });
     }
   });
