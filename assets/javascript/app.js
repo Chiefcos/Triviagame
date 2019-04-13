@@ -133,20 +133,19 @@ function displayTrivia() {
       $("#incorrect-answers").html(
         "You had " + incorrectAnswer + " incorrect answers"
       );
-
-      $("#retry").on("click", function() {
-        $("#gameover").hide();
-        timerCount = 30;
-        count = 0;
-        $("#questionscreen").show();
-        $("#question").empty();
-        $("#answer").empty();
-        setTimeout(displayTrivia, timer, 3000);
-        return;
-      });
     }
   });
 }
+
+$("#retry").on("click", function() {
+  $("#gameover").hide();
+  timerCount = 30;
+  count = 0;
+  $("#questionscreen").show();
+  $("#question").empty();
+  $("#answer").empty();
+  setTimeout(displayTrivia, timer, 3000);
+});
 // this is the function that resets the game
 function reset() {
   count++;
