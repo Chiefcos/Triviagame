@@ -60,8 +60,8 @@ var lengthOfQuestion = questionArray.length;
 var lengthOfChoices = questionArray[count].choices.length;
 
 // These are variables to check the correct answer
-var rightAnswer;
 var check;
+var rightAnswer;
 
 // this will start the game once you click on the start button
 $("#start").on("click", function() {
@@ -75,10 +75,12 @@ $("#start").on("click", function() {
 // This function makes the timer run until it hits zero.
 function timer() {
   timerCount--;
+
   if (timerCount <= 0) {
     clearInterval(counter);
     // If the time runs out and you didn't answer you get an incorrect answer
     incorrectAnswer++;
+    // showTimesUp();
     reset();
   }
 
@@ -110,13 +112,16 @@ function displayTrivia() {
     userPick = $(this).text();
     check = questionArray[count].validAnswer;
     rightAnswer = questionArray[count].choices[check];
+
     if (userPick != rightAnswer) {
       $("#answer").append(losingAnswer);
       incorrectAnswer++;
+      showAnswerIncorrect();
       reset();
     } else if (userPick === rightAnswer) {
       $("#answer").append(winingAnswer);
       correctAnswer++;
+      showAnswerCorrect();
       reset();
     }
     // this is the game over statement. When there are no more questions left.
@@ -136,7 +141,6 @@ function displayTrivia() {
         $("#questionscreen").show();
         $("#question").empty();
         $("#answer").empty();
-        setTimeout(displayTrivia, timer, 3000);
       });
     }
   });
@@ -149,3 +153,35 @@ function reset() {
   $("#answer").empty();
   setTimeout(displayTrivia, timer, 3000);
 }
+
+// function showAnswerCorrect() {
+//   $("#questionscreen").hide();
+//   $("#show-answer").show();
+//   $("#show-incorrect").hide();
+//   $("#times-up").hide();
+//   setTimeout(resetAnswer, 2000);
+// }
+
+// function resetAnswer() {
+//   $("#questionscreen").show();
+//   $("#show-answer").hide();
+// }
+
+// function showAnswerIncorrect() {
+//   $("#questionscreen").hide();
+//   $("#show-answer").show();
+//   $("#show-correct").hide();
+//   $("show-incorrect").show();
+//   $("#times-up").hide();
+//   $("#incorrected").text(rightAnswer);
+//   setTimeout(resetAnswer, 2000);
+// }
+// function showTimesUp() {
+//   $(".correct").text(rightAnswer);
+//   $("#questionscreen").hide();
+//   $("#show-answer").show();
+//   $("#show-correct").hide();
+//   $("#show-incorrect").hide();
+//   $("#times-up").show();
+//   setTimeout(resetAnswer, 2000);
+// }
